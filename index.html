@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Liz, will you be my Valentine? 💘</title>
+  <title>babby, will you be my Valentine? 💘</title>
   <!-- Google Font: soft & romantic -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -25,7 +25,7 @@
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      padding-bottom: 80px; /* Space for music button */
+      padding-bottom: 80px;
       position: relative;
       overflow-x: hidden;
       color: #4a2e3b;
@@ -340,7 +340,7 @@
       z-index: 40;
     }
 
-    /* ---------- FIXED MUSIC BUTTON (BOTTOM CENTER, NOT BLOCKING) ---------- */
+    /* ---------- FIXED MUSIC BUTTON (BOTTOM CENTER) ---------- */
     .music-footer {
       position: fixed;
       bottom: 0;
@@ -496,7 +496,7 @@
 </head>
 <body>
 
-  <!-- ========== BACKGROUND MAGIC ========== -->
+  <!-- ========== BACKGROUND MAGIC - PERSONALIZED FOR AUDREY PYNOSHELL ========= -->
   <div class="floating-blessings">
     <!-- floating hearts -->
     <span class="heart-float" style="left: 5%; animation-delay: 0s; font-size: 2.2rem;">💖</span>
@@ -521,20 +521,21 @@
     <span class="sparkle-twinkle" style="top: 40%; left: 50%; animation-delay: 2.5s;">✨</span>
     <span class="sparkle-twinkle" style="top: 80%; left: 20%; animation-delay: 0.5s;">✨</span>
 
-    <!-- floating love words with LIZ -->
-    <span class="love-word" style="top: 20%; left: 2%;">Liz 💕 love you</span>
-    <span class="love-word" style="top: 60%; left: 70%; animation-delay: 5s;">xoxo Liz 💋</span>
-    <span class="love-word" style="top: 80%; left: 10%; animation-delay: 2s;">my favorite Liz 🥰</span>
-    <span class="love-word" style="top: 30%; left: 80%; animation-delay: 8s;">forever Liz ❤️</span>
+    <!-- floating love words with AUDREY PYNOSHELL (both full name and nicknames) -->
+    <span class="love-word" style="top: 15%; left: 2%;">Audrey 💕 love you</span>
+    <span class="love-word" style="top: 70%; left: 65%; animation-delay: 4s;">Audrey Pynoshell 💗</span>
+    <span class="love-word" style="top: 25%; left: 70%; animation-delay: 7s;">xoxo Audrey 💋</span>
+    <span class="love-word" style="top: 80%; left: 15%; animation-delay: 2s;">my favorite Pyno 🥰</span>
+    <span class="love-word" style="top: 45%; left: 80%; animation-delay: 9s;">forever Audrey ❤️</span>
+    <span class="love-word" style="top: 60%; left: 25%; animation-delay: 5s;">Pynoshell 💖</span>
   </div>
 
-  <!-- ========== AUDIO (SILENT INITIALLY, PLAY ON FIRST TAP) ========= -->
+  <!-- ========== AUDIO ========= -->
   <audio id="bgMusic" loop preload="auto">
     <source src="assets/audio/song.mp3" type="audio/mpeg">
-    <!-- fallback if no audio file -->
   </audio>
 
-  <!-- ========== FIXED MUSIC BUTTON (BOTTOM CENTER, WON'T BLOCK) ========= -->
+  <!-- ========== FIXED MUSIC BUTTON ========= -->
   <div class="music-footer">
     <button id="musicBtn" class="btn btn-music">🎵 Tap to play our song 💕</button>
   </div>
@@ -544,53 +545,54 @@
     ❤️ Valentine’s Day in: 00 Days · 00 Hours · 00 Minutes · 00 Seconds
   </div>
 
-  <!-- ========== MAIN GLASS CARD ========== -->
+  <!-- ========== MAIN GLASS CARD - PERSONALIZED FOR AUDREY ========= -->
   <div class="valentine-card" id="mainCard">
-    <!-- STEP 1 – INTRO (Liz) -->
+    <!-- STEP 1 – INTRO (Audrey) -->
     <div id="step1" class="step">
       <div style="font-size: 2.8rem; animation: fadeSlideIn 1.5s;">🥰💗</div>
-      <h1 style="font-size: 2.4rem; margin-bottom: -0.5rem; animation: fadeSlideIn 1.2s;">Hiiii babe 🥰💗</h1>
-      <p style="font-size: 1.8rem; font-weight: 600; animation: fadeSlideIn 1.4s;">I made something special just for you 💕</p>
+      <h1 style="font-size: 2.4rem; margin-bottom: -0.5rem; animation: fadeSlideIn 1.2s;">Hiiii Babeeeyyyy 🥰💗</h1>
+      <p style="font-size: 1.8rem; font-weight: 600; animation: fadeSlideIn 1.4s;">I made something special just for you, Pyno 💕</p>
       <button id="step1Btn" class="btn" style="font-size: 2rem;">Tap here cutie 😘</button>
     </div>
 
-    <!-- STEP 2 – PHOTO MEMORIES -->
+    <!-- STEP 2 – PHOTO MEMORIES (Audrey) -->
     <div id="step2" class="step hidden-step">
       <h2 style="font-size: 2rem;">📸 you & me 💑</h2>
       <div class="photo-grid">
         <div class="photo-item">
-          <img src="assets/photos/photo1.jpg" alt="Liz photo 1" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23ffc1cc%22%2F%3E%3Ctext%20x%3D%2230%22%20y%3D%2290%22%20font-size%3D%2230%22%20fill%3D%22%23ffffff%22%3E📸%20Liz%3C%2Ftext%3E%3C%2Fsvg%3E';">
-          <span class="photo-caption">babby how are you this cute 😍</span>
+          <img src="assets/photos/photo1.jpg" alt="Audrey photo 1" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23ffc1cc%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2290%22%20font-size%3D%2224%22%20fill%3D%22%23ffffff%22%3EAudrey%3C%2Ftext%3E%3C%2Fsvg%3E';">
+          <span class="photo-caption"> how are you this cute 😍</span>
           <span style="position: absolute; top: -10px; right: -10px; font-size: 2rem; animation: popHeart 2s infinite;">💖</span>
         </div>
         <div class="photo-item">
-          <img src="assets/photos/photo2.jpg" alt="Liz photo 2" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23fbb1c2%22%2F%3E%3Ctext%20x%3D%2230%22%20y%3D%2290%22%20font-size%3D%2230%22%20fill%3D%22%23ffffff%22%3E📸%20Liz%3C%2Ftext%3E%3C%2Fsvg%3E';">
+          <img src="assets/photos/photo2.jpg" alt="Audrey photo 2" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23fbb1c2%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2290%22%20font-size%3D%2224%22%20fill%3D%22%23ffffff%22%3EPyno%3C%2Ftext%3E%3C%2Fsvg%3E';">
           <span class="photo-caption">My favorite moments with you 💕</span>
           <span style="position: absolute; top: -10px; left: -10px; font-size: 2rem; animation: popHeart 2.2s infinite;">💗</span>
         </div>
         <div class="photo-item">
-          <img src="assets/photos/photo3.jpg" alt="Liz photo 3" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23ffa7b9%22%2F%3E%3Ctext%20x%3D%2230%22%20y%3D%2290%22%20font-size%3D%2230%22%20fill%3D%22%23ffffff%22%3E📸%20Liz%3C%2Ftext%3E%3C%2Fsvg%3E';">
-          <span class="photo-caption">Forever my happy place🥰</span>
+          <img src="assets/photos/photo3.jpg" alt="Audrey photo 3" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23ffa7b9%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2290%22%20font-size%3D%2224%22%20fill%3D%22%23ffffff%22%3EPynoshell%3C%2Ftext%3E%3C%2Fsvg%3E';">
+          <span class="photo-caption">Forever my happy place, Pyno 🥰</span>
           <span style="position: absolute; bottom: -10px; right: -5px; font-size: 2rem; animation: popHeart 2.6s infinite;">💘</span>
         </div>
       </div>
       <button id="step2Next" class="btn">Next 💞</button>
     </div>
 
-    <!-- STEP 3 – LOVE NOTES -->
+    <!-- STEP 3 – LOVE NOTES (Audrey Pynoshell) -->
     <div id="step3" class="step hidden-step">
-      <h2 style="font-size: 2.2rem;">💌 for Liz 💌</h2>
+      <h2 style="font-size: 2.2rem;">💌 for Audrey Pynoshell 💌</h2>
       <div class="note-list">
-        <div class="note">✨ you make me smile every single day 😄💗</div>
-        <div class="note">🌸  you make my world brighter ✨</div>
-        <div class="note">🥹 I’m so lucky to love you, babe 🥹💕</div>
+        <div class="note">✨ babe, you make me smile every single day 😄💗</div>
+        <div class="note">🌸 you make my world brighter ✨</div>
+        <div class="note">🥹 I'm so lucky to have you 🥹💕</div>
+        <div class="note">💖 You're my favorite person, my Pyno 💖</div>
       </div>
       <button id="step3Next" class="btn">One more thing... 💋</button>
     </div>
 
-    <!-- STEP 4 – THE BIG MOMENT -->
+    <!-- STEP 4 – THE BIG MOMENT (Audrey) -->
     <div id="step4" class="step hidden-step">
-      <div class="big-question">💘 will you be my Valentine? 💘</div>
+      <div class="big-question">💘 mommmaa, will you be my Valentine? 💘</div>
       <div class="yes-no">
         <button id="yesBtn" class="btn btn-yes">YESSS 💖💖💖</button>
         <button id="noBtn" class="btn btn-no">No 🙈</button>
@@ -598,17 +600,19 @@
     </div>
   </div>
 
-  <!-- Celebration overlay -->
+  <!-- Celebration overlay - PERSONALIZED FOR AUDREY -->
   <div id="celebrationOverlay" class="celebration-overlay hidden">
     <div class="final-message">
-      <div>YAYYYYY mommaaa😍💞</div>
+      <div>YAYYYYY babbby! 😍💞</div>
       <div style="font-size: 1.6rem; margin-top: 1rem;">You just made me the happiest person ever 💕</div>
-      <div style="font-size: 1.8rem; margin-top: 1.2rem;">I can’t wait to spend Valentine’s Day with you, mommaa 💋💖</div>
+      <div style="font-size: 1.8rem; margin-top: 1.2rem;">I can't wait to spend Valentine's Day with you, babe 💋💖</div>
       <div style="font-size: 2.4rem; margin-top: 1.8rem;">I love you ❤️ forever ❤️</div>
+      <div style="font-size: 1.8rem; margin-top: 1rem;">My Audrey, my Pynoshell 💗</div>
     </div>
   </div>
 
   <script>
+
     (function() {
       "use strict";
 
@@ -627,24 +631,21 @@
       const mainCard = document.getElementById('mainCard');
       const celebrationOverlay = document.getElementById('celebrationOverlay');
 
-      // ----- MUSIC: NO AUTOPLAY, PLAY ON FIRST TAP (Mobile friendly) -----
+      // ----- MUSIC: PLAY ON FIRST INTERACTION -----
       let musicPlaying = false;
       
-      // Function to start music (called on first user interaction)
       function startMusic() {
         if (!musicPlaying) {
           bgMusic.volume = 0.5;
           bgMusic.play().then(() => {
             musicPlaying = true;
             musicBtn.innerHTML = '🎵 Our song is playing 💕';
-          }).catch(error => {
-            console.log("Playback failed:", error);
-            musicBtn.innerHTML = '🎵 Tap again to play 💕';
+          }).catch(() => {
+            musicBtn.innerHTML = '🎵 Tap to play our song 💕';
           });
         }
       }
       
-      // Music button toggles play/pause
       musicBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (bgMusic.paused) {
@@ -659,16 +660,14 @@
         }
       });
       
-      // Start music on ANY user interaction (tap anywhere)
+      // Start music on first interaction
       function initMusicOnInteraction() {
         startMusic();
-        // Remove listeners after first interaction
         document.removeEventListener('click', initMusicOnInteraction);
         document.removeEventListener('touchstart', initMusicOnInteraction);
         document.removeEventListener('keydown', initMusicOnInteraction);
       }
       
-      // Listen for first user interaction to start music
       document.addEventListener('click', initMusicOnInteraction);
       document.addEventListener('touchstart', initMusicOnInteraction);
       document.addEventListener('keydown', initMusicOnInteraction);
@@ -714,9 +713,9 @@
         popRandomHeartsAroundCard(10);
       });
 
-      // ----- PLAYFUL NO BUTTON (mobile optimized) -----
+      // ----- PLAYFUL NO BUTTON -----
       noBtn.addEventListener('mouseover', function(e) {
-        if (window.innerWidth > 768) { // Only run away on desktop hover
+        if (window.innerWidth > 768) {
           const maxX = window.innerWidth - noBtn.offsetWidth - 50;
           const maxY = window.innerHeight - noBtn.offsetHeight - 100;
           let x = Math.min(Math.max(10, Math.random() * maxX), window.innerWidth - noBtn.offsetWidth - 10);
@@ -727,17 +726,15 @@
         }
       });
 
-      // On mobile, button moves slightly but stays accessible
       noBtn.addEventListener('touchstart', function(e) {
         e.preventDefault();
         if (window.innerWidth <= 768) {
-          // Gentle nudge on mobile, not full runaway
           noBtn.style.transform = 'translateX(5px)';
           setTimeout(() => { noBtn.style.transform = 'translateX(0)'; }, 200);
         }
       });
 
-      // ----- YES CLICK: CELEBRATION -----
+      // ----- YES CLICK: CELEBRATION for AUDREY -----
       yesBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         celebrationOverlay.classList.remove('hidden');
@@ -749,6 +746,25 @@
           setTimeout(() => createFallingHeartEmoji('🥰'), i * 15);
           setTimeout(() => createFallingHeartEmoji('😍'), i * 18);
           setTimeout(() => createFallingHeartEmoji('💋'), i * 20);
+          setTimeout(() => createFallingHeartEmoji('🌸'), i * 22);
+          setTimeout(() => createFallingHeartEmoji('✨'), i * 25);
+        }
+        
+        // Special Audrey hearts
+        for (let i=0; i<30; i++) {
+          setTimeout(() => {
+            const audreyHeart = document.createElement('span');
+            audreyHeart.innerHTML = '💗';
+            audreyHeart.style.position = 'fixed';
+            audreyHeart.style.left = Math.random() * 100 + '%';
+            audreyHeart.style.top = Math.random() * 100 + '%';
+            audreyHeart.style.fontSize = '2.5rem';
+            audreyHeart.style.pointerEvents = 'none';
+            audreyHeart.style.zIndex = 9999;
+            audreyHeart.style.animation = 'popHeart 2s ease-out forwards';
+            document.body.appendChild(audreyHeart);
+            setTimeout(() => audreyHeart.remove(), 1900);
+          }, i * 30);
         }
         
         // Auto-hide celebration after 8 seconds
@@ -761,7 +777,7 @@
       document.addEventListener('click', function(e) {
         const heart = document.createElement('span');
         heart.classList.add('click-heart');
-        heart.innerHTML = ['💖','💗','💘','💕','💞','🥰'][Math.floor(Math.random()*6)];
+        heart.innerHTML = ['💖','💗','💘','💕','💞','🥰','✨','🌸'][Math.floor(Math.random()*8)];
         heart.style.left = (e.pageX - 30) + 'px';
         heart.style.top = (e.pageY - 30) + 'px';
         document.body.appendChild(heart);
