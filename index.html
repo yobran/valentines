@@ -25,6 +25,7 @@
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
+      padding-bottom: 80px; /* Space for music button */
       position: relative;
       overflow-x: hidden;
       color: #4a2e3b;
@@ -36,7 +37,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* ---------- FLOATING HEARTS, EMOJIS, SPARKLES, LOVE WORDS (background magic) ---------- */
+    /* ---------- FLOATING HEARTS, EMOJIS, SPARKLES, LOVE WORDS ---------- */
     .floating-blessings {
       position: fixed;
       top: 0;
@@ -57,7 +58,6 @@
       animation-iteration-count: infinite;
     }
 
-    /* floating hearts 💖 */
     .heart-float {
       font-size: 1.8rem;
       animation: floatHeart 16s infinite;
@@ -72,7 +72,6 @@
       100% { transform: translateY(-110vh) rotate(20deg); opacity: 0; }
     }
 
-    /* falling emojis confetti 🥰😍💋🌸✨💐 */
     .emoji-fall {
       font-size: 2rem;
       top: -10%;
@@ -84,7 +83,6 @@
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
     }
 
-    /* sparkles ✨ */
     .sparkle-twinkle {
       font-size: 1.5rem;
       opacity: 0;
@@ -97,7 +95,6 @@
       100% { opacity: 0; transform: scale(0.8); }
     }
 
-    /* floating love words */
     .love-word {
       font-size: 1.8rem;
       font-weight: 600;
@@ -131,6 +128,7 @@
       animation: floatCard 4s infinite ease-in-out;
       border: 1px solid rgba(255, 209, 223, 0.7);
       transition: box-shadow 0.3s;
+      margin-bottom: 20px;
     }
 
     @keyframes floatCard {
@@ -139,7 +137,6 @@
       100% { transform: translateY(0px); }
     }
 
-    /* hearts popping around card (tiny absolute) */
     .card-heart-pop {
       position: absolute;
       font-size: 2rem;
@@ -243,7 +240,7 @@
       border-radius: 24px;
       border: 5px solid white;
       box-shadow: 0 0 30px #ffb6c1;
-      background: #fccad1; /* fallback */
+      background: #fccad1;
     }
 
     .photo-caption {
@@ -340,29 +337,50 @@
       text-align: center;
       border: 2px dashed #ff99aa;
       width: 100%;
+      z-index: 40;
     }
 
-    /* music toggle (now autoplay, but we keep visual indicator) */
-    .music-toggle {
+    /* ---------- FIXED MUSIC BUTTON (BOTTOM CENTER, NOT BLOCKING) ---------- */
+    .music-footer {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 20px;
       z-index: 999;
+      pointer-events: none;
     }
 
     .btn-music {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(20px);
-      padding: 0.9rem 1.6rem;
-      font-size: 1.4rem;
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.8rem 2rem;
+      font-size: 1.3rem;
       border-radius: 60px;
       border: 3px solid white;
-      box-shadow: 0 0 30px #ffa5b0;
+      box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5), 0 0 30px #ffa5b0;
       color: #9e3d5a;
       font-weight: 700;
+      pointer-events: auto;
+      transition: all 0.2s ease;
+      animation: pulseMusic 2s infinite;
     }
 
-    /* celebration confetti overlay (YES click) */
+    @keyframes pulseMusic {
+      0% { box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5); }
+      50% { box-shadow: 0 4px 30px rgba(255, 50, 130, 0.8); }
+      100% { box-shadow: 0 4px 20px rgba(255, 105, 180, 0.5); }
+    }
+
+    .btn-music:active {
+      transform: scale(0.95);
+    }
+
+    /* celebration overlay */
     .celebration-overlay {
       position: fixed;
       top: 0;
@@ -382,7 +400,7 @@
     }
 
     .final-message {
-      background: rgba(255, 215, 235, 0.9);
+      background: rgba(255, 215, 235, 0.95);
       backdrop-filter: blur(16px);
       padding: 2.5rem;
       border-radius: 70px;
@@ -393,6 +411,7 @@
       border: 4px solid white;
       box-shadow: 0 0 80px hotpink;
       animation: popBig 0.5s;
+      margin: 20px;
     }
 
     /* hearts on click */
@@ -409,18 +428,75 @@
       100% { transform: translateY(-140px) scale(1.8); opacity: 0; }
     }
 
-    /* responsive */
+    /* ---------- MOBILE OPTIMIZATIONS ---------- */
     @media (max-width: 550px) {
-      .valentine-card { padding: 1.8rem; }
-      .btn { font-size: 1.3rem; padding: 0.8rem 1.5rem; }
-      .photo-item img { width: 120px; height: 120px; }
-      .big-question { font-size: 2rem; }
+      body {
+        padding: 1rem;
+        padding-bottom: 100px;
+      }
+      
+      .valentine-card { 
+        padding: 1.5rem; 
+      }
+      
+      .btn { 
+        font-size: 1.3rem; 
+        padding: 0.8rem 1.5rem; 
+      }
+      
+      .photo-item img { 
+        width: 120px; 
+        height: 120px; 
+      }
+      
+      .big-question { 
+        font-size: 2rem; 
+      }
+      
+      .yes-no {
+        gap: 1.5rem;
+        flex-direction: column;
+        width: 100%;
+      }
+      
+      .btn-yes, .btn-no {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+      
+      .btn-music {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.6rem;
+        width: auto;
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .photo-grid {
+        gap: 1rem;
+      }
+      
+      .photo-item img {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .countdown-box {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+      }
+    }
+
+    img {
+      background-color: #ffe2eb;
     }
   </style>
 </head>
 <body>
 
-  <!-- ========== BACKGROUND MAGIC: FLOATING HEARTS, EMOJIS, SPARKLES, LOVE WORDS ========= -->
+  <!-- ========== BACKGROUND MAGIC ========== -->
   <div class="floating-blessings">
     <!-- floating hearts -->
     <span class="heart-float" style="left: 5%; animation-delay: 0s; font-size: 2.2rem;">💖</span>
@@ -430,7 +506,7 @@
     <span class="heart-float" style="left: 90%; animation-delay: 8s;">💕</span>
     <span class="heart-float" style="left: 15%; animation-delay: 11s;">💓</span>
     
-    <!-- falling emojis confetti (now includes Liz's name in the air!) -->
+    <!-- falling emojis confetti -->
     <span class="emoji-fall" style="left: 8%; animation-delay: 1s; font-size: 2rem;">🥰</span>
     <span class="emoji-fall" style="left: 28%; animation-delay: 4s; font-size: 2.3rem;">😍</span>
     <span class="emoji-fall" style="left: 55%; animation-delay: 7s;">💋</span>
@@ -439,38 +515,38 @@
     <span class="emoji-fall" style="left: 45%; animation-delay: 12s;">💐</span>
     <span class="emoji-fall" style="left: 92%; animation-delay: 5s;">🥰</span>
 
-    <!-- sparkles twinkling -->
+    <!-- sparkles -->
     <span class="sparkle-twinkle" style="top: 15%; left: 12%;">✨</span>
     <span class="sparkle-twinkle" style="top: 70%; left: 85%; animation-delay: 1s;">✨</span>
     <span class="sparkle-twinkle" style="top: 40%; left: 50%; animation-delay: 2.5s;">✨</span>
     <span class="sparkle-twinkle" style="top: 80%; left: 20%; animation-delay: 0.5s;">✨</span>
 
-    <!-- floating love words - now personalized with LIZ -->
+    <!-- floating love words with LIZ -->
     <span class="love-word" style="top: 20%; left: 2%;">Liz 💕 love you</span>
     <span class="love-word" style="top: 60%; left: 70%; animation-delay: 5s;">xoxo Liz 💋</span>
     <span class="love-word" style="top: 80%; left: 10%; animation-delay: 2s;">my favorite Liz 🥰</span>
     <span class="love-word" style="top: 30%; left: 80%; animation-delay: 8s;">forever Liz ❤️</span>
   </div>
 
-  <!-- ========== MUSIC - AUTOPLAY AS USER NAVIGATES (starts immediately) ========= -->
-  <audio id="bgMusic" loop autoplay playsinline>
+  <!-- ========== AUDIO (SILENT INITIALLY, PLAY ON FIRST TAP) ========= -->
+  <audio id="bgMusic" loop preload="auto">
     <source src="assets/audio/song.mp3" type="audio/mpeg">
-    <!-- fallback if no audio file - silent but autoplay works -->
+    <!-- fallback if no audio file -->
   </audio>
-  
-  <!-- music toggle button (now shows playing state, but autoplay is ON) -->
-  <div class="music-toggle">
-    <button id="musicBtn" class="btn btn-music">🎵 Our song is playing 💕</button>
+
+  <!-- ========== FIXED MUSIC BUTTON (BOTTOM CENTER, WON'T BLOCK) ========= -->
+  <div class="music-footer">
+    <button id="musicBtn" class="btn btn-music">🎵 Tap to play our song 💕</button>
   </div>
 
-  <!-- ========== COUNTDOWN TO VALENTINE'S DAY ========= -->
+  <!-- ========== COUNTDOWN TIMER ========== -->
   <div class="countdown-box" id="countdownTimer">
     ❤️ Valentine’s Day in: 00 Days · 00 Hours · 00 Minutes · 00 Seconds
   </div>
 
-  <!-- ========== MAIN GLASS CARD (MULTI-STEP) ========= -->
+  <!-- ========== MAIN GLASS CARD ========== -->
   <div class="valentine-card" id="mainCard">
-    <!-- STEP 1 – INTRO (personalized for Liz) -->
+    <!-- STEP 1 – INTRO (Liz) -->
     <div id="step1" class="step">
       <div style="font-size: 2.8rem; animation: fadeSlideIn 1.5s;">🥰💗</div>
       <h1 style="font-size: 2.4rem; margin-bottom: -0.5rem; animation: fadeSlideIn 1.2s;">Hiiii Liz 🥰💗</h1>
@@ -478,7 +554,7 @@
       <button id="step1Btn" class="btn" style="font-size: 2rem;">Tap here cutie 😘</button>
     </div>
 
-    <!-- STEP 2 – PHOTO MEMORIES (hidden initially) - personalized captions -->
+    <!-- STEP 2 – PHOTO MEMORIES -->
     <div id="step2" class="step hidden-step">
       <h2 style="font-size: 2rem;">📸 Liz & me 💑</h2>
       <div class="photo-grid">
@@ -489,30 +565,30 @@
         </div>
         <div class="photo-item">
           <img src="assets/photos/photo2.jpg" alt="Liz photo 2" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23fbb1c2%22%2F%3E%3Ctext%20x%3D%2230%22%20y%3D%2290%22%20font-size%3D%2230%22%20fill%3D%22%23ffffff%22%3E📸%20Liz%3C%2Ftext%3E%3C%2Fsvg%3E';">
-          <span class="photo-caption">My favorite moments with you 💕</span>
+          <span class="photo-caption">My favorite moments with Liz 💕</span>
           <span style="position: absolute; top: -10px; left: -10px; font-size: 2rem; animation: popHeart 2.2s infinite;">💗</span>
         </div>
         <div class="photo-item">
           <img src="assets/photos/photo3.jpg" alt="Liz photo 3" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22160%22%20height%3D%22160%22%3E%3Crect%20width%3D%22160%22%20height%3D%22160%22%20fill%3D%22%23ffa7b9%22%2F%3E%3Ctext%20x%3D%2230%22%20y%3D%2290%22%20font-size%3D%2230%22%20fill%3D%22%23ffffff%22%3E📸%20Liz%3C%2Ftext%3E%3C%2Fsvg%3E';">
-          <span class="photo-caption">Forever my happy place, babby 🥰</span>
+          <span class="photo-caption">Forever my happy place, Liz 🥰</span>
           <span style="position: absolute; bottom: -10px; right: -5px; font-size: 2rem; animation: popHeart 2.6s infinite;">💘</span>
         </div>
       </div>
       <button id="step2Next" class="btn">Next 💞</button>
     </div>
 
-    <!-- STEP 3 – LOVE NOTES (personalized for Liz) -->
+    <!-- STEP 3 – LOVE NOTES -->
     <div id="step3" class="step hidden-step">
       <h2 style="font-size: 2.2rem;">💌 for Liz 💌</h2>
       <div class="note-list">
-        <div class="note">✨ Babe, you make me smile every single day 😄💗</div>
-        <div class="note">🌸 you make my world brighter ✨</div>
-        <div class="note">🥹 m so lucky to love you, Liz 🥹💕</div>
+        <div class="note">✨ you make me smile every single day 😄💗</div>
+        <div class="note">🌸  you make my world brighter ✨</div>
+        <div class="note">🥹 I’m so lucky to love you, babe 🥹💕</div>
       </div>
       <button id="step3Next" class="btn">One more thing... 💋</button>
     </div>
 
-    <!-- STEP 4 – THE BIG MOMENT (personalized for Liz) -->
+    <!-- STEP 4 – THE BIG MOMENT -->
     <div id="step4" class="step hidden-step">
       <div class="big-question">💘 will you be my Valentine? 💘</div>
       <div class="yes-no">
@@ -522,12 +598,12 @@
     </div>
   </div>
 
-  <!-- Celebration overlay (hidden until YES clicked) - personalized for Liz -->
+  <!-- Celebration overlay -->
   <div id="celebrationOverlay" class="celebration-overlay hidden">
     <div class="final-message">
       <div>YAYYYYY Liz 😍💞</div>
       <div style="font-size: 1.6rem; margin-top: 1rem;">You just made me the happiest person ever 💕</div>
-      <div style="font-size: 1.8rem; margin-top: 1.2rem;">I can’t wait to spend Valentine’s Day with you, mommaaa💋💖</div>
+      <div style="font-size: 1.8rem; margin-top: 1.2rem;">I can’t wait to spend Valentine’s Day with you, mommaa 💋💖</div>
       <div style="font-size: 2.4rem; margin-top: 1.8rem;">I love you ❤️ forever ❤️</div>
     </div>
   </div>
@@ -551,41 +627,57 @@
       const mainCard = document.getElementById('mainCard');
       const celebrationOverlay = document.getElementById('celebrationOverlay');
 
-      // ----- MUSIC AUTOPLAY (starts as user navigates, immediately) -----
-      // We set autoplay in the HTML, but we ensure it plays on page load
-      bgMusic.volume = 0.6; // comfortable level
+      // ----- MUSIC: NO AUTOPLAY, PLAY ON FIRST TAP (Mobile friendly) -----
+      let musicPlaying = false;
       
-      // Try to play automatically (works on most browsers with user interaction or if autoplay allowed)
-      let musicPlaying = true;
-      
-      const playPromise = bgMusic.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay was prevented - we set button to prompt user
-          musicBtn.innerHTML = '🎵 Tap to play our song 💕';
-          musicPlaying = false;
-        });
+      // Function to start music (called on first user interaction)
+      function startMusic() {
+        if (!musicPlaying) {
+          bgMusic.volume = 0.5;
+          bgMusic.play().then(() => {
+            musicPlaying = true;
+            musicBtn.innerHTML = '🎵 Our song is playing 💕';
+          }).catch(error => {
+            console.log("Playback failed:", error);
+            musicBtn.innerHTML = '🎵 Tap again to play 💕';
+          });
+        }
       }
       
-      // Music toggle button (play/pause) - updates state
+      // Music button toggles play/pause
       musicBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         if (bgMusic.paused) {
-          bgMusic.play().catch(() => {});
-          musicBtn.innerHTML = '🎵 Our song is playing 💕';
-          musicPlaying = true;
+          bgMusic.play().then(() => {
+            musicBtn.innerHTML = '🎵 Our song is playing 💕';
+            musicPlaying = true;
+          }).catch(() => {});
         } else {
           bgMusic.pause();
           musicBtn.innerHTML = '🎵 Tap to play our song 💕';
           musicPlaying = false;
         }
       });
+      
+      // Start music on ANY user interaction (tap anywhere)
+      function initMusicOnInteraction() {
+        startMusic();
+        // Remove listeners after first interaction
+        document.removeEventListener('click', initMusicOnInteraction);
+        document.removeEventListener('touchstart', initMusicOnInteraction);
+        document.removeEventListener('keydown', initMusicOnInteraction);
+      }
+      
+      // Listen for first user interaction to start music
+      document.addEventListener('click', initMusicOnInteraction);
+      document.addEventListener('touchstart', initMusicOnInteraction);
+      document.addEventListener('keydown', initMusicOnInteraction);
 
-      // ----- COUNTDOWN TIMER (to Feb 14) -----
+      // ----- COUNTDOWN TIMER -----
       function updateCountdown() {
         const now = new Date();
         let year = now.getFullYear();
-        let target = new Date(year, 1, 14); // feb 14 (month is 0-indexed)
+        let target = new Date(year, 1, 14);
         if (now > target) {
           target = new Date(year + 1, 1, 14);
         }
@@ -601,79 +693,82 @@
       setInterval(updateCountdown, 1000);
 
       // ----- STEP FLOW -----
-      step1Btn.addEventListener('click', function() {
+      step1Btn.addEventListener('click', function(e) {
+        e.stopPropagation();
         step1.classList.add('hidden-step');
         step2.classList.remove('hidden-step');
         popRandomHeartsAroundCard(6);
       });
 
-      step2Next.addEventListener('click', function() {
+      step2Next.addEventListener('click', function(e) {
+        e.stopPropagation();
         step2.classList.add('hidden-step');
         step3.classList.remove('hidden-step');
         popRandomHeartsAroundCard(6);
       });
 
-      step3Next.addEventListener('click', function() {
+      step3Next.addEventListener('click', function(e) {
+        e.stopPropagation();
         step3.classList.add('hidden-step');
         step4.classList.remove('hidden-step');
         popRandomHeartsAroundCard(10);
       });
 
-      // ----- PLAYFUL NO BUTTON (runs away) -----
+      // ----- PLAYFUL NO BUTTON (mobile optimized) -----
       noBtn.addEventListener('mouseover', function(e) {
-        const maxX = window.innerWidth - noBtn.offsetWidth - 50;
-        const maxY = window.innerHeight - noBtn.offsetHeight - 80;
-        let x = Math.random() * maxX;
-        let y = Math.random() * maxY;
-        noBtn.style.position = 'fixed';
-        noBtn.style.left = x + 'px';
-        noBtn.style.top = y + 'px';
+        if (window.innerWidth > 768) { // Only run away on desktop hover
+          const maxX = window.innerWidth - noBtn.offsetWidth - 50;
+          const maxY = window.innerHeight - noBtn.offsetHeight - 100;
+          let x = Math.min(Math.max(10, Math.random() * maxX), window.innerWidth - noBtn.offsetWidth - 10);
+          let y = Math.min(Math.max(10, Math.random() * maxY), window.innerHeight - noBtn.offsetHeight - 80);
+          noBtn.style.position = 'fixed';
+          noBtn.style.left = x + 'px';
+          noBtn.style.top = y + 'px';
+        }
       });
 
-      // also for touch devices
+      // On mobile, button moves slightly but stays accessible
       noBtn.addEventListener('touchstart', function(e) {
         e.preventDefault();
-        const maxX = window.innerWidth - noBtn.offsetWidth - 50;
-        const maxY = window.innerHeight - noBtn.offsetHeight - 80;
-        noBtn.style.position = 'fixed';
-        noBtn.style.left = Math.random() * maxX + 'px';
-        noBtn.style.top = Math.random() * maxY + 'px';
+        if (window.innerWidth <= 768) {
+          // Gentle nudge on mobile, not full runaway
+          noBtn.style.transform = 'translateX(5px)';
+          setTimeout(() => { noBtn.style.transform = 'translateX(0)'; }, 200);
+        }
       });
 
-      // ----- YES CLICK: CELEBRATION EXPLOSION 💥 (personalized for Liz) -----
+      // ----- YES CLICK: CELEBRATION -----
       yesBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        // Show celebration message
         celebrationOverlay.classList.remove('hidden');
-        // massive heart/emoji confetti
-        for (let i=0; i<60; i++) {
-          setTimeout(() => createFallingHeartEmoji('💖'), i * 15);
+        
+        // Massive celebration confetti
+        for (let i=0; i<80; i++) {
+          setTimeout(() => createFallingHeartEmoji('💖'), i * 10);
           setTimeout(() => createFallingHeartEmoji('💘'), i * 12);
-          setTimeout(() => createFallingHeartEmoji('🥰'), i * 10);
+          setTimeout(() => createFallingHeartEmoji('🥰'), i * 15);
           setTimeout(() => createFallingHeartEmoji('😍'), i * 18);
-          setTimeout(() => createFallingHeartEmoji('💋'), i * 22);
-          setTimeout(() => createFallingHeartEmoji('🌸'), i * 25);
+          setTimeout(() => createFallingHeartEmoji('💋'), i * 20);
         }
-        // also pop hearts all over
-        for (let i=0; i<25; i++) {
-          setTimeout(() => spawnHeartAtRandom(), i*20);
-        }
-
-        // final floating text already there, but we also add more Liz hearts
+        
+        // Auto-hide celebration after 8 seconds
+        setTimeout(() => {
+          celebrationOverlay.classList.add('hidden');
+        }, 8000);
       });
 
-      // ----- HEARTS SPAWN WHEREVER USER TAPS/CLICKS -----
+      // ----- HEARTS ON TAP -----
       document.addEventListener('click', function(e) {
         const heart = document.createElement('span');
         heart.classList.add('click-heart');
-        heart.innerHTML = '💗';
+        heart.innerHTML = ['💖','💗','💘','💕','💞','🥰'][Math.floor(Math.random()*6)];
         heart.style.left = (e.pageX - 30) + 'px';
         heart.style.top = (e.pageY - 30) + 'px';
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 1500);
       });
 
-      // Helper to spawn random hearts around card
+      // Helper functions
       function popRandomHeartsAroundCard(count = 6) {
         for (let i=0; i<count; i++) {
           setTimeout(() => {
@@ -688,7 +783,6 @@
         }
       }
 
-      // Celebration helpers
       function createFallingHeartEmoji(symbol) {
         const el = document.createElement('span');
         el.innerHTML = symbol;
@@ -703,28 +797,14 @@
         setTimeout(() => el.remove(), 2900);
       }
 
-      function spawnHeartAtRandom() {
-        const h = document.createElement('span');
-        h.innerHTML = '💕';
-        h.style.position = 'fixed';
-        h.style.left = Math.random() * 100 + '%';
-        h.style.top = Math.random() * 100 + '%';
-        h.style.fontSize = '2rem';
-        h.style.pointerEvents = 'none';
-        h.style.zIndex = 9999;
-        h.style.animation = 'popHeart 1.5s ease-out forwards';
-        document.body.appendChild(h);
-        setTimeout(() => h.remove(), 1400);
-      }
-
-      // Also auto hearts around card sometimes
+      // Auto hearts around card
       setInterval(() => {
-        if (Math.random() > 0.4) {
+        if (Math.random() > 0.5 && document.visibilityState === 'visible') {
           popRandomHeartsAroundCard(2);
         }
-      }, 2800);
+      }, 3000);
 
-      // reset no button position on resize
+      // Reset no button position on resize
       window.addEventListener('resize', function() {
         if (noBtn.style.position === 'fixed') {
           noBtn.style.position = 'relative';
@@ -735,36 +815,5 @@
 
     })();
   </script>
-
-  <!-- extra sparkle: hearts on step4 load -->
-  <script>
-    (function secondarySparker() {
-      const step4 = document.getElementById('step4');
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((m) => {
-          if (m.type === 'attributes' && m.attributeName === 'class') {
-            if (!step4.classList.contains('hidden-step')) {
-              for(let i=0;i<8;i++) setTimeout(() => {
-                let ev = new Event('click');
-                document.dispatchEvent(ev);
-              }, i*50);
-            }
-          }
-        });
-      });
-      observer.observe(step4, { attributes: true });
-    })();
-  </script>
-
-  <style>
-    @media (max-width: 600px) {
-      .btn-no {
-        max-width: 120px;
-      }
-    }
-    img {
-      background-color: #ffe2eb;
-    }
-  </style>
 </body>
 </html>
